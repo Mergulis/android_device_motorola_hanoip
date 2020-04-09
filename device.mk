@@ -145,5 +145,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# vndservicemanager
+PRODUCT_PACKAGES += \
+    vndservicemanager
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/motorola/hanoip/hanoip-vendor.mk)
