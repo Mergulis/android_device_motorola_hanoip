@@ -10,6 +10,18 @@ prebuilt_etc {
     vendor: true,
 }
 
+sh_binary {
+    name: "init.oem.fingerprint.sh",
+    src: "bin/init.oem.fingerprint.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.oem.fingerprint2.sh",
+    src: "bin/init.oem.fingerprint2.sh",
+    vendor: true,
+}
+
 // Init scripts
 sh_binary {
     name: "apanic_annotate.sh",

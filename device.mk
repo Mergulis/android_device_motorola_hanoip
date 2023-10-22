@@ -139,7 +139,9 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    init.mmi.overlay.rc
+    init.mmi.overlay.rc \
+    init.oem.fingerprint.sh \
+    init.oem.fingerprint2.sh
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
