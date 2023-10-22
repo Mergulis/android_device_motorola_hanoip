@@ -11,6 +11,10 @@ TARGET_IS_VAB := true
 # Inherit from sm6150-common
 $(call inherit-product, device/motorola/sm6150-common/common.mk)
 
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
