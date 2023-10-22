@@ -132,6 +132,10 @@ PRODUCT_COPY_FILES += \
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
+# Rootdir
+PRODUCT_PACKAGES += \
+    init.mmi.overlay.rc
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
