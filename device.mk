@@ -5,6 +5,7 @@
 #
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+TARGET_IS_VAB := true
 
 # Inherit from sm6150-common
 $(call inherit-product, device/motorola/sm6150-common/common.mk)
