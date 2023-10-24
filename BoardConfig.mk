@@ -52,6 +52,7 @@ TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_SCREEN_DENSITY := 395
 
 # Kernel
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_BOOTIMG_HEADER_VERSION := 3
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
