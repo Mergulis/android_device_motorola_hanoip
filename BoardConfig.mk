@@ -7,6 +7,12 @@
 # Inherit from sm6150-common
 include device/motorola/sm6150-common/BoardConfigCommon.mk
 
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
+
+BOARD_VENDOR := motorola
+
 DEVICE_PATH := device/motorola/hanoip
 
 # A/B
