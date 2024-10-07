@@ -56,7 +56,7 @@ TARGET_KERNEL_CONFIG := hanoip_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/hanoip
 
 # Kernel - prebuilt
-TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_FORCE_PREBUILT_KERNEL := false
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
@@ -64,6 +64,38 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_INCLUDE_DTB_IN_BOOTIMG := 
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 BOARD_KERNEL_SEPARATED_DTBO := 
+else
+# Source Kernel
+BOARD_BOOT_HEADER_VERSION := 3
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_CMDLINE := \
+    console=ttyMSM0,115200n8 \
+    androidboot.hardware=qcom \
+    androidboot.console=ttyMSM0 \
+    androidboot.memcg=1 \
+    lpm_levels.sleep_disabled=1 \
+    msm_rtb.filter=0x237 \
+    service_locator.enable=1 \
+    swiotlb=1 \
+    androidboot.usbcontroller=a600000.dwc3 \
+    earlycon=msm_geni_serial,0x880000 \
+    loop.max_part=7 \
+    printk.devkmsg=on \
+    firmware_class.path=/vendor/firmware_mnt/image 
+
+BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_RAMDISK_USE_LZ4 := true
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/motorola/hanoip
+TARGET_KERNEL_CONFIG := \
+    vendor/sdmsteppe-perf_defconfig \
+    vendor/ext_config/moto-sdmsteppe.config \
+    vendor/ext_config/moto-sdmmagpie-hanoip.config \
+    vendor/debugfs.config \
+    vendor/ext_config/hanoip-moto-sdmsteppe.config
 endif
 
 # Partitions
